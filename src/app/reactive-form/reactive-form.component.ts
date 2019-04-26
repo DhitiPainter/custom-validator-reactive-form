@@ -21,7 +21,6 @@ export class ReactiveFormComponent implements OnInit, OnChanges  {
     this.createForm()
     this.reactiveForm.valueChanges.subscribe(val =>{
       if(val.password1){
-        console.log(val);
          this.reactiveForm.controls.password2.setValidators(ValidatorService.checkPasswordMatch(val.password1))
       }
     })
