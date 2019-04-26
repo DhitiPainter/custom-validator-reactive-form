@@ -4,7 +4,7 @@
       <td><label>User Name</label></td>
       <td>
         <input type="text" formControlName="userName" />
-        <span *ngIf="reactiveForm.controls.userName.error">
+        <span *ngIf="reactiveForm.controls.userName.dirty && reactiveForm.controls.userName.errors">
           required
         </span>
       </td>
@@ -13,7 +13,7 @@
       <td><label>Password</label></td>
       <td>
         <input type="password" formControlName="password1" />
-        <span *ngIf="reactiveForm.controls.password1.error">
+        <span *ngIf="reactiveForm.controls.password1.dirty && reactiveForm.controls.password1.errors">
           required
         </span>
       </td>
@@ -22,8 +22,11 @@
       <td><label>Re-type Password</label></td>
       <td>
         <input type="password" formControlName="password2" />
-        <span *ngIf="reactiveForm.controls.password2.error">
+        <span *ngIf="reactiveForm.controls.password2.dirty && reactiveForm.controls.password2.errors && reactiveForm.controls.password2.errors.required">
           required
+        </span>
+        <span *ngIf="reactiveForm.controls.password2.dirty &&reactiveForm.controls.password2.errors && reactiveForm.controls.password2.errors.passMatch">
+          {{reactiveForm.controls.password2.errors.passMatch}}
         </span>
       </td>
     </tr>
