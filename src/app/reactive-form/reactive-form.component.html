@@ -1,0 +1,36 @@
+<form [formGroup]="reactiveForm" (submit)="onSubmit()">
+  <table>
+    <tr>
+      <td><label>User Name</label></td>
+      <td>
+        <input type="text" formControlName="userName" />
+        <span *ngIf="reactiveForm.controls.userName.error">
+          required
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Password</label></td>
+      <td>
+        <input type="password" formControlName="password1" />
+        <span *ngIf="reactiveForm.controls.password1.error">
+          required
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Re-type Password</label></td>
+      <td>
+        <input type="password" formControlName="password2" />
+        <span *ngIf="reactiveForm.controls.password2.error">
+          required
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button type="submit">Submit</button>
+      </td>
+    </tr>
+  </table>
+</form>
